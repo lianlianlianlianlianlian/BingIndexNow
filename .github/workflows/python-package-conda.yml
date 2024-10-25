@@ -1,11 +1,9 @@
 name: Run API Script
 
 on: 
-  push:
-    branches:
-      - main  # 选择要监视的分支
   schedule:
     - cron: '*/5 * * * *'  # 每五分钟执行一次
+  workflow_dispatch:  # 允许手动触发工作流
 
 jobs:
   run-api:
@@ -18,11 +16,11 @@ jobs:
       - name: Set up Python 3.10
         uses: actions/setup-python@v2
         with:
-          python-version: '3.10'  # 设置你需要的 Python 版本
+          python-version: '3.10'
 
       - name: Install dependencies
         run: |
-          pip install requests xmltodict  # 安装你的脚本所需的依赖
+          pip install --no-cache-dir requests xmltodict  # 安装依赖
 
       - name: Run api.py
-        run: python api.py  # 运行你的脚本
+        run: python api.py  # 执行脚本
