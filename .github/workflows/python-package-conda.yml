@@ -1,0 +1,25 @@
+name: Daily Sitemap URL Submitter
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 每天 UTC 时间 00:00 执行
+
+jobs:
+  submit-urls:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # 使用你的 Python 版本
+
+      - name: Install dependencies
+        run: |
+          pip install requests xmltodict
+
+      - name: Run script
+        run: python api.py  # 替换为你的脚本文件名
