@@ -49,7 +49,7 @@ KEY_LOCATION = f'https://{HOST}/{API_KEY}.txt'  # 密钥位置
 要运行脚本，只需执行：
 
 ```bash
-python your_script_name.py
+python3 api.py
 ```
 
 脚本将输出网站地图获取的状态、即将提交的 URL 以及 IndexNow API 的响应。
@@ -59,7 +59,7 @@ python your_script_name.py
 ```
 SITEMAP_URL 响应状态码: 200
 即将提交的 URL 地址: {...}
-提交的 URL 响应状态码: 200
+所有提交的 URL 响应状态码: 200
 成功提交的 URL: {...}
 提交的 URL: https://example.com/page1 状态码: 200
 ```
