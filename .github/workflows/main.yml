@@ -1,0 +1,25 @@
+name: Frequent API Submitter
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # 每五分钟执行
+
+jobs:
+  submit-urls:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # 使用你的 Python 版本
+
+      - name: Install dependencies
+        run: |
+          pip install requests xmltodict
+
+      - name: Run script
+        run: python api.py  # 确保这里是正确的脚本文件名
