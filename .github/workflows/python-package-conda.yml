@@ -1,8 +1,9 @@
 name: Run API Script
 
-on: 
+on:
+  workflow_dispatch:  # 允许手动触发工作流
   schedule:
-    - cron: '*/5 * * * *'  # 每五分钟执行一次
+    - cron: '0 * * * *'  # 每个小时的整点执行一次
 
 jobs:
   run-api:
